@@ -1,6 +1,6 @@
 import pytest
 from httpx import AsyncClient
-from main import app # assuming this is the entry point
+from app.main import app # assuming this is the entry point
 from app.models.user import UserModel
 from fastapi.testclient import TestClient
 
