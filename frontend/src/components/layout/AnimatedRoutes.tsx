@@ -16,6 +16,10 @@ import { ForgotPasswordPage } from '../../pages/auth/ForgotPasswordPage'
 import { ResetPasswordPage } from '../../pages/auth/ResetPasswordPage'
 import { NotFoundPage } from '../../pages/NotFoundPage'
 
+// Lazy loaded legal pages
+const PrivacyPolicyPage = React.lazy(() => import('../../pages/legal/PrivacyPolicyPage').then(m => ({ default: m.PrivacyPolicyPage })))
+const TermsOfServicePage = React.lazy(() => import('../../pages/legal/TermsOfServicePage').then(m => ({ default: m.TermsOfServicePage })))
+
 // Lazy pages
 const DashboardPage = React.lazy(() => import('../../pages/dashboard/DashboardPage').then(m => ({ default: m.DashboardPage })))
 const ResumesPage = React.lazy(() => import('../../pages/resumes/ResumesPage').then(m => ({ default: m.ResumesPage })))
@@ -70,6 +74,10 @@ export const AnimatedRoutes: React.FC = () => {
             <Route path={ROUTES.VERIFY_EMAIL} element={<PageTransition><VerifyEmailPage /></PageTransition>} />
             <Route path={ROUTES.FORGOT_PASSWORD} element={<PageTransition><ForgotPasswordPage /></PageTransition>} />
             <Route path={ROUTES.RESET_PASSWORD} element={<PageTransition><ResetPasswordPage /></PageTransition>} />
+            
+            {/* Legal Pages */}
+            <Route path={ROUTES.PRIVACY_POLICY} element={<PageTransition><PrivacyPolicyPage /></PageTransition>} />
+            <Route path={ROUTES.TERMS_OF_SERVICE} element={<PageTransition><TermsOfServicePage /></PageTransition>} />
 
             {/* Protected Workspace Routes */}
             <Route element={<ProtectedRoute />}>

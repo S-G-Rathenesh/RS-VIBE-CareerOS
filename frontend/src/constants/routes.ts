@@ -23,4 +23,6 @@ export const ROUTES = {
   RECRUITER_COMPANY: '/recruiter/company',
   RECRUITER_JOBS: '/recruiter/jobs',
   RECRUITER_SEARCH: '/recruiter/search',
+  PRIVACY_POLICY: '/privacy-policy',
+  TERMS_OF_SERVICE: '/terms-of-service',
 } as const

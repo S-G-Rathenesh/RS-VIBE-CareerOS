@@ -563,7 +563,6 @@ export const LandingPage: React.FC = () => {
           <div className="flex flex-col gap-3">
             <span className="text-xs font-bold text-white uppercase tracking-wider">Resources</span>
             <div className="flex flex-col gap-2 text-xs text-gray-400">
-              <a href="/docs" className="hover:text-white transition-colors">API Documentation</a>
               <Link to={ROUTES.BRAND_STUDIO} className="hover:text-white transition-colors">Brand Studio</Link>
               <Link to={ROUTES.CONTENT_STUDIO} className="hover:text-white transition-colors">Content Studio</Link>
               <Link to={ROUTES.CAREER_ANALYTICS} className="hover:text-white transition-colors">Career Analytics</Link>
@@ -585,9 +584,10 @@ export const LandingPage: React.FC = () => {
         <div className="max-w-7xl mx-auto border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <span>© {new Date().getFullYear()} RS VIBE CareerOS. All rights reserved.</span>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
+            <Link to={ROUTES.PRIVACY_POLICY} className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to={ROUTES.TERMS_OF_SERVICE} className="hover:text-white transition-colors">Terms of Service</Link>
+            <a href="mailto:ratheneshsg@gmail.com" className="hover:text-white transition-colors">Contact</a>
+            <a href="https://github.com/S-G-Rathenesh" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
               <Github className="w-3.5 h-3.5" /> GitHub
             </a>
           </div>

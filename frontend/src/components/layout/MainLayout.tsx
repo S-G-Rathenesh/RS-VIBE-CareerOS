@@ -8,7 +8,7 @@ import { useAuthStore } from '../../store/useAuthStore'
 import { motion, AnimatePresence } from 'framer-motion'
 
 // Routes that should NOT show the sidebar layout
-const PUBLIC_ROUTES = ['/', '/login', '/register', '/forgot-password', '/reset-password']
+const PUBLIC_ROUTES = ['/', '/login', '/register', '/forgot-password', '/reset-password', '/privacy-policy', '/terms-of-service']
 
 export const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { toasts, removeToast } = useUIStore()
@@ -87,11 +87,10 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }
                 <span>© {new Date().getFullYear()} All rights reserved.</span>
               </div>
               <div className="flex flex-wrap items-center gap-6">
-                <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-                <a href="/docs" className="hover:text-white transition-colors">API Docs</a>
-                <a href="#" className="hover:text-white transition-colors">Contact</a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
+                <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</a>
+                <a href="mailto:ratheneshsg@gmail.com" className="hover:text-white transition-colors">Contact</a>
+                <a href="https://github.com/S-G-Rathenesh" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
               </div>
             </div>
           </footer>
