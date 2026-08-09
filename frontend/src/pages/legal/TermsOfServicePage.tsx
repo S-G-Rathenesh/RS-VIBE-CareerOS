@@ -97,15 +97,6 @@ export const TermsOfServicePage: React.FC = () => {
           </p>
         </section>
 
-        <section className="flex flex-col gap-3">
-          <h2 className="text-2xl font-bold text-white">12. Contact Us</h2>
-          <p>
-            If you have any questions about these Terms, please contact us at:
-          </p>
-          <a href="mailto:ratheneshsg@gmail.com" className="text-primary-400 hover:text-primary-300 transition-colors w-fit">
-            ratheneshsg@gmail.com
-          </a>
-        </section>
 
       </div>
     </div>
