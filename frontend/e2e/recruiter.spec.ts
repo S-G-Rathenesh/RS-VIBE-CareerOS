@@ -23,7 +23,7 @@ test.describe('Recruiter Journey', () => {
 
   test('should view candidate search', async ({ page }) => {
     await page.goto('/recruiter/search');
-    await expect(page.getByRole('heading', { name: 'Candidate Search' })).toBeVisible({ timeout: 10000 });
+    await expect(page.getByRole('main').getByRole('heading', { name: 'Candidate Search' })).toBeVisible({ timeout: 10000 });
     await expect(page.getByRole('heading', { name: 'Filters' })).toBeVisible({ timeout: 10000 });
   });
 });

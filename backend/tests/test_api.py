@@ -1,5 +1,5 @@
 import pytest
-from httpx import AsyncClient
+from httpx import ASGITransport, AsyncClient
 from app.main import app # assuming this is the entry point
 from app.models.user import UserModel
 from fastapi.testclient import TestClient
@@ -14,7 +14,7 @@ def test_health_check():
 
 @pytest.mark.asyncio
 async def test_auth_registration():
-    async with AsyncClient(app=app, base_url="http://test") as ac:
+    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
         response = await ac.post("/api/v1/auth/register", json={
             "email": "testcandidate@example.com",
             "password": "Password123!",
@@ -27,7 +27,7 @@ async def test_auth_registration():
 @pytest.mark.asyncio
 async def test_recruiter_company_creation():
     # Mocking authentication would go here. For now, testing endpoint availability.
-    async with AsyncClient(app=app, base_url="http://test") as ac:
+    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
         # Without auth this should ideally return 401/403, but because we mocked auth in dev mode
         # it might return 200. Let's just check it doesn't 404 or 500.
         response = await ac.post("/api/v1/recruiter-hub/company", json={
