@@ -105,7 +105,8 @@ class Settings(BaseSettings):
     @classmethod
     def validate_frontend_url(cls, v: str, info) -> str:
         app_env = info.data.get("APP_ENV", "production")
-        if app_env.lower() == "production":
+        is_render = os.getenv("RENDER", "").lower() == "true"
+        if app_env.lower() == "production" or is_render:
             if "localhost" in v or "127.0.0.1" in v:
                 return "https://rsvibecareer.rathenesh.dev"
         return v
