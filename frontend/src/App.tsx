@@ -6,6 +6,7 @@ import { AccessibilityProvider } from './components/common/AccessibilityProvider
 import { SkipToContent } from './components/common/SkipToContent'
 import { CommandPalette } from './components/common/CommandPalette'
 import { useAuthStore } from './store/useAuthStore'
+import { useDevToolsDeterrence } from './hooks/useDevToolsDeterrence'
 
 // Lazy Loaded Workstation Pages (Public ones)
 const PublicPortfolioPage = lazy(() => import('./pages/portfolios/PublicPortfolioPage').then(m => ({ default: m.PublicPortfolioPage })))
@@ -18,6 +19,9 @@ const LoadingFallback = () => (
 
 export const App: React.FC = () => {
   const { fetchCurrentUser } = useAuthStore()
+  
+  // Enable production devtools deterrence
+  useDevToolsDeterrence()
 
   useEffect(() => {
     fetchCurrentUser()
