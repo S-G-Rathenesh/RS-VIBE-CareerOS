@@ -50,17 +50,29 @@ class Settings(BaseSettings):
     @classmethod
     def assemble_cors_origins(cls, v: Union[str, List[str]]) -> List[str]:
         frontend_url = os.getenv("FRONTEND_URL")
-        origins = []
+        origins = [
+            "https://rsvibecareer.rathenesh.dev",
+            "https://exploreme.ai",
+            "https://exploreme-ai.vercel.app"
+        ]
         if frontend_url:
             origins.append(frontend_url)
 
-        if isinstance(v, str) and not v.startswith("["):
-            origins.extend([i.strip() for i in v.split(",")])
-            return list(set(origins))
+        if isinstance(v, str):
+            if v.startswith("["):
+                import json
+                try:
+                    parsed = json.loads(v)
+                    if isinstance(parsed, list):
+                        origins.extend(parsed)
+                except Exception:
+                    pass
+            else:
+                origins.extend([i.strip() for i in v.split(",")])
         elif isinstance(v, list):
             origins.extend(v)
-            return list(set(origins))
-        return origins or ["*"]
+            
+        return list(set(origins))
         
     # Cloudinary
     CLOUDINARY_CLOUD_NAME: str = os.getenv("CLOUDINARY_CLOUD_NAME", "")
