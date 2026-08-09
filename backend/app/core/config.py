@@ -101,6 +101,15 @@ class Settings(BaseSettings):
     # Google Authentication
     GOOGLE_CLIENT_ID: str = os.getenv("GOOGLE_CLIENT_ID", "")
 
+    @field_validator("FRONTEND_URL", mode="after")
+    @classmethod
+    def validate_frontend_url(cls, v: str, info) -> str:
+        app_env = info.data.get("APP_ENV", "production")
+        if app_env.lower() == "production":
+            if "localhost" in v or "127.0.0.1" in v:
+                return "https://rsvibecareer.rathenesh.dev"
+        return v
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

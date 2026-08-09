@@ -13,6 +13,8 @@ services:
         value: "false"
       - key: API_V1_STR
         value: /api/v1
+      - key: FRONTEND_URL
+        value: https://rsvibecareer.rathenesh.dev
       - key: SECRET_KEY
         generateValue: true
       - key: MONGODB_URL
