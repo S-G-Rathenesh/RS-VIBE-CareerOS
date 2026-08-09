@@ -42,7 +42,8 @@ class Settings(BaseSettings):
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "https://exploreme.ai",
-        "https://exploreme-ai.vercel.app"
+        "https://exploreme-ai.vercel.app",
+        "https://rsvibecareer.rathenesh.dev"
     ]
 
     @field_validator("ALLOWED_ORIGINS", mode="before")

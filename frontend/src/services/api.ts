@@ -1,7 +1,8 @@
 import axios, { AxiosInstance, AxiosError, InternalAxiosRequestConfig } from 'axios'
 import { APIResponse } from '../types'
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1'
+const _envUrl = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+const API_BASE_URL = _envUrl.endsWith('/api/v1') ? _envUrl : `${_envUrl}/api/v1`
 
 export const api: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
@@ -119,7 +120,7 @@ api.interceptors.response.use(
       return Promise.reject({
         status: 0,
         code: 'CONNECTION_REFUSED',
-        message: 'Unable to connect to backend server. Make sure it is running on port 8000.',
+        message: 'Unable to connect to backend server. Please try again later.',
         action: 'Retry'
       })
     }
