@@ -1,4 +1,4 @@
-# ExploreMe AI 🚀
+# RS Vibe CareerOS 🚀
 **The Ultimate AI-Powered Career Operating System**
 
 ExploreMe AI is an enterprise-grade SaaS platform designed to revolutionize the hiring ecosystem for both candidates and recruiters. It bridges the gap between job seekers and employers by providing a unified, AI-driven platform for building resumes, creating portfolios, managing job applications, and sourcing talent.
