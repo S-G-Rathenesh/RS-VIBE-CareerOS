@@ -2,6 +2,14 @@
   "version": 2,
   "rewrites": [
     {
+      "source": "/sitemap.xml",
+      "destination": "https://api.rsvibecareer.rathenesh.dev/api/v1/public/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "https://api.rsvibecareer.rathenesh.dev/api/v1/public/robots.txt"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
