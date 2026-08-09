@@ -29,20 +29,21 @@ jobs:
     - name: Test with pytest
       working-directory: ./backend
       env:
+        PYTHONPATH: .
         APP_ENV: testing
         SECRET_KEY: super-secret-ci-key-for-testing-only-12345
         MONGODB_URL: mongodb://localhost:27017
       run: |
-        pytest tests/
+        python -m pytest tests/
 
   frontend-test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Node.js 18
+    - name: Set up Node.js 20
       uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 20
     - name: Install dependencies
       working-directory: ./frontend
       run: npm ci
