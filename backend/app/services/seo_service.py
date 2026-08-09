@@ -8,7 +8,7 @@ class SEOService:
     async def generate_sitemap_xml() -> str:
         base_url = settings.FRONTEND_URL.rstrip('/')
         urls = [
-            f"{base_url}"
+            f"{base_url}/"
         ]
 
         if db_manager.db is not None:

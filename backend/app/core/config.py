@@ -86,8 +86,11 @@ class Settings(BaseSettings):
 
     # Email Configuration (Resend)
     RESEND_API_KEY: str = os.getenv("RESEND_API_KEY", "")
-    EMAIL_FROM: str = os.getenv("EMAIL_FROM", "noreply@exploreme.ai")
-    FRONTEND_URL: str = os.getenv("FRONTEND_URL", "http://localhost:5173")
+    EMAIL_FROM: str = os.getenv("EMAIL_FROM", "noreply@rsvibecareer.rathenesh.dev")
+    FRONTEND_URL: str = os.getenv(
+        "FRONTEND_URL",
+        "https://rsvibecareer.rathenesh.dev" if os.getenv("APP_ENV", "production") == "production" else "http://localhost:5173"
+    )
 
     # Razorpay Payment Gateway
     RAZORPAY_KEY_ID: str = os.getenv("RAZORPAY_KEY_ID", "")
